@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <servlet>
+        <servlet-name>LogIn</servlet-name>
+        <servlet-class>net.therap.controller.LogInServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LogIn</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogInForm</servlet-name>
+        <servlet-class>net.therap.controller.LogInFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LogInForm</servlet-name>
+        <url-pattern>/loginform</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Welcome</servlet-name>
+        <servlet-class>net.therap.controller.WelcomeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Welcome</servlet-name>
+        <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FoodMenu</servlet-name>
+        <servlet-class>net.therap.controller.FoodMenuServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FoodMenu</servlet-name>
+        <url-pattern>/foodmenu</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditFoodMenu</servlet-name>
+        <servlet-class>net.therap.controller.EditFoodMenuServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditFoodMenu</servlet-name>
+        <url-pattern>/editfoodmenu</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>net.therap.controller.LogOutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadFoodMenu</servlet-name>
+        <servlet-class>net.therap.controller.UploadFoodMenuServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadFoodMenu</servlet-name>
+        <url-pattern>/uploadfoodmenu</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>sessionFilter</filter-name>
+        <filter-class>net.therap.filters.SessionFilter</filter-class>
+    </filter>
+
+
+    <filter-mapping>
+        <filter-name>sessionFilter</filter-name>
+        <servlet-name>Welcome</servlet-name>
+        <servlet-name>FoodMenu</servlet-name>
+        <servlet-name>EditFoodMenu</servlet-name>
+        <servlet-name>UploadFoodMenu</servlet-name>
+        <servlet-name>LogOut</servlet-name>
+
+
+    </filter-mapping>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/errorPages/notFoundError.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/jsp/errorPages/serverError.jsp</location>
+    </error-page>
+
+
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+
+</web-app>
